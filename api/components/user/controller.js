@@ -23,10 +23,14 @@ module.exports = function(injectedStore) {
       username: body.username,
     }
 
+    let isNew;
+
     if (body.id) {
       user.id = body.id;
+      isNew = false;
     } else {
       user.id = nanoid();
+      isNew = true;
     }
 
     if (body.password || body.username) {
@@ -34,10 +38,10 @@ module.exports = function(injectedStore) {
         id: user.id,
         username: user.username,
         password: body.password,
-      });
+      }, isNew);
     }
 
-    return store.upsert(TABLA, user);
+    return store.upsert(TABLA, user, isNew);
   }
 
   return {
