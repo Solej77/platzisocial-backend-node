@@ -1,0 +1,20 @@
+
+const auth = require('../../../auth');
+module.exports = function checkAuth(action) {
+
+
+  function middleware(req, res, next) {
+    switch (actiion) {
+      case 'update':
+        const owner = req.body,id;
+        auth.check.own(req, owner);
+        break;
+    
+      default:
+        next();
+        break;
+    }
+  }
+
+  return middleware;
+}
