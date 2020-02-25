@@ -8,7 +8,6 @@ const user = require('./components/user/network');
 const auth = require('./components/auth/network');
 const errors = require('../network/erros');
 
-
 const app = express();
 
 app.use(bodyParser.json());
