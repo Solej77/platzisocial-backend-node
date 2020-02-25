@@ -15,13 +15,13 @@ function verify(token) {
 const check = {
   own: function(req, owner) {
      const decoded = decodeHeader(req);
-     console.log(decoded);
 
      if (decoded.id  !== owner) {
        throw error('No puedes hacer esto', 401);
      }
   },
 }
+
 function getToken(auth) {
   if (!auth) {
     throw error('No viene token', 401);

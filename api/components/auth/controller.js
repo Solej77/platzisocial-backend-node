@@ -11,12 +11,12 @@ module.exports = function (injectedStore) {
 
   async function login(username, password) {
     const data = await store.query(TABLA, { username: username });
-    
+
     return bcrypt.compare(password, data.password)
       .then(sonIguales => {
         if (sonIguales === true) {
           // Generar token;
-          return auth.sign(data);
+          return auth.sign({ ...data });
         } else {
           throw error('Informacion Invalida', 406);
         }

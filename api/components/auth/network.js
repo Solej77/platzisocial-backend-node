@@ -11,7 +11,7 @@ router.post('/login', function(req, res) {
       response.success(req, res, token, 200);
     })
     .catch((err) => {
-      response.err(req, res, 'Informacion invalida', 400, err);
+      response.error(req, res, 'Informacion invalida', 400, err);
     });
 });
 
