@@ -71,10 +71,10 @@ function update(table, data) {
   });
 }
 
-function upsert(table, data, isNew) {
-  if (data && data.id && isNew) {    
+function upsert(table, data, isNew) {  
+  if (isNew) {    
     return insert(table, data);
-  } else {
+  } else {    
     return update(table, data); 
   }
 }
