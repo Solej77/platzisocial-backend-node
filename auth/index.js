@@ -14,6 +14,10 @@ const check = {
   own: function(req, owner) {
      const decoded = decodeHeader(req);
      console.log(decoded);
+
+     if (decoded.id  !== owner) {
+       throw new Error('No puedes hacer esto');
+     }
   },
 }
 function getToken(auth) {
@@ -21,11 +25,11 @@ function getToken(auth) {
     throw new Error('No viene token');
   }
 
-  if (auth.indexOf('Barer ') === -1) {
+  if (auth.indexOf('Bearer ') === -1) {
     throw new Error('Formato invalido');
   }
 
-  let token = auth.replace('Barer ', '');
+  let token = auth.replace('Bearer ', '');
   return token;
 }
 
@@ -41,4 +45,5 @@ function decodeHeader(req) {
 
 module.exports = {
   sign,
+  check,
 }
