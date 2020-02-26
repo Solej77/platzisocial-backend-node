@@ -12,5 +12,5 @@ app.use(bodyParser.json());
 app.use('/', router);
 
 app.listen(config.mysqlService.port, () => {
-  console.log('Service de nysql escuchando en el puerto', config.mysqlService.port);
+  console.log('MySQL escuchando en el puerto', config.mysqlService.port);
 });
