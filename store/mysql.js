@@ -25,7 +25,7 @@ function handleCon() {
 
   connection.on('error', err => {
     console.error('[db error]', err);
-    if (err.code === 'PROTOCOL_CONNECTION_LIST') {
+    if (err.code === 'PROTOCOL_CONNECTION_LOST') {
       handleCon();
     } else {
       throw err;

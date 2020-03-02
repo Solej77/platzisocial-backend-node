@@ -10,7 +10,7 @@ module.exports = {
     secret: process.env.JWT_SECRET || 'notascret',
   },
   mysql: {
-    host: process.env.MYSQL_HOST || '',
+    host: process.env.MYSQL_HOST || 'remotemysql.com',
     user: process.env.MYSQL_USER || 'mgKUegkfAf',
     password: process.env.MYSQL_PASSWORD || 'Ncn6SKCT7s',
     database: process.env.MYSQL_DATABASE || 'mgKUegkfAf',
